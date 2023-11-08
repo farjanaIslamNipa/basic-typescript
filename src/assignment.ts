@@ -145,8 +145,55 @@ const getSumOfNumbers = (mixedList : NumberOrWord[]) : number => {
 }
 
 
-const sumNum = getSumOfNumbers(mixedData)
-console.log(sumNum)
+// const sumNum = getSumOfNumbers(mixedData)
+// console.log(sumNum)
+
+// ---------------------------------------------------------
+// ---------------------------------------------------------
+
+
+
+// Define two interfaces: Car with properties like make, model, and year, and Driver with properties like name and licenseNumber. Create a function that takes two objects of type Car and Driver and returns an object with the combined properties of both types.
+
+// Problem 5
+interface Car {
+  make: string;
+  model: string;
+  year: number;
+}
+
+interface Driver {
+  name: string;
+  licenseNumber: number;
+}
+
+
+interface CarWithDriver extends Car, Driver{}
+
+const car : Car = {
+  make: 'SUV',
+  model: 'z2013',
+  year: 2020
+}
+
+const driver : Driver = {
+  name: 'John',
+  licenseNumber: 2021345
+}
+
+const getDetail = (obj1 : Car, obj2 : Driver) : CarWithDriver => {
+  let combinedValue : CarWithDriver =  {...obj1, ...obj2}
+
+  return combinedValue;
+}
+
+// let value = getDetail(car, driver)
+// console.log(value)
+
+
+
+
+
 
 
 }
