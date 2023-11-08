@@ -181,7 +181,7 @@ const driver : Driver = {
   licenseNumber: 2021345
 }
 
-const getDetail = (obj1 : Car, obj2 : Driver) : CarWithDriver => {
+const getCarWithDriver = (obj1 : Car, obj2 : Driver) : CarWithDriver => {
   let combinedValue : CarWithDriver =  {...obj1, ...obj2}
 
   return combinedValue;
@@ -190,6 +190,42 @@ const getDetail = (obj1 : Car, obj2 : Driver) : CarWithDriver => {
 // let value = getDetail(car, driver)
 // console.log(value)
 
+// ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+
+
+
+// Write a TypeScript function that takes a parameter of type unknown and uses a type guard to check whether the parameter is an array of numbers. If it is, calculate the sum of the numbers and log it. If it's not, log an error message.
+
+// Problem 6
+
+const numberArray = [5, 7, 8, 12];
+const stringArray = [ 'nitu', 'nipa', 'rupa', 'bipa' ];
+
+const isNumberArray = (param : any) : boolean => {
+  return Array.isArray(param) && param.every(item => typeof item === "number");
+}
+
+// let num = isNumberArray(stringArray);
+// console.log(num, 'num')
+const throughError = (msg:string) : never => {
+  throw new Error(msg);
+}
+const checkNumberArray = (arr : unknown) => {
+  try{
+    if(isNumberArray(arr)) {
+      let receivedArray = arr as number[]
+      let sumNum = receivedArray.reduce((a: number, b: number) : number => a + b, 0)
+      console.log(sumNum)
+     }
+  }catch(error){
+    console.error('The array is not a number type array');
+  }
+
+
+} 
+
+checkNumberArray(stringArray)
 
 
 

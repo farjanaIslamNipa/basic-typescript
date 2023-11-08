@@ -107,6 +107,14 @@ const cat = new Cat( 'Cat vai', 'cat');
 getAnimal(dog)
 getAnimal(cat)
 
+type CustomError = {
+  message: string
+}
+try{
+
+}catch(error){
+  console.log((error as CustomError).message)
+}
 
 }
 
