@@ -227,9 +227,89 @@ const checkNumberArray = (arr : unknown) => {
 
 checkNumberArray(stringArray)
 
+// -------------------------------------------------------------------
+// -------------------------------------------------------------------
+
+// Problem 7
+
+// Create a TypeScript function called findFirstOccurrence that accepts an array and a value to search for. Use generics to make the function work with arrays of any data type. Inside the function, find and return the index of the first occurrence of the value in the array. If the value is not found in the array, return -1 to indicate that. Create sample arrays of different data types (e.g., numbers, strings) and call the findFirstOccurrence function for each of them to display the results.
+
+// Example usage:<>
 
 
 
+const numbers: number[] = [1, 2, 3, 4, 5, 2];
+
+const strings: string[] = ["apple", "banana", "cherry", "date", "apple"];
+
+const targetNumber : number = 8;
+
+const targetString = "cherry";
+
+type ParamArray = []
+
+const findFirstOccurrence = <T, U>(arr : T, value: U ) => {
+    if((arr as ParamArray).includes(value)){
+      return (arr as ParamArray).indexOf(value)
+    }else return -1
+}
+
+const indexInNumbers = findFirstOccurrence<number[], number>(numbers, targetNumber);
+
+const indexInStrings = findFirstOccurrence(strings, targetString);
+
+// console.log(indexInNumbers); //output:  1
+
+// console.log(indexInStrings); //output: 2
 
 
+// Problem 8
+
+// Create a TypeScript program that simulates a simple shopping cart. Define an interface Product with properties like name, price, and quantity. Implement a function that calculates the total cost of the items in the shopping cart. The function should take an array of Product objects as input and return the total cost.
+type ProductArray<T> = Array<T>
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+const groceryItems: ProductArray<Product> = [
+  {
+    name: 'egg',
+    price: 20,
+    quantity: 5
+  },
+  {
+    name: 'onion',
+    price: 160,
+    quantity: 20
+  },
+  {
+    name: 'banana',
+    price: 120,
+    quantity: 10
+  },
+]
+
+const getTotal = (products : ProductArray<Product>) : number => {
+  let productsPrice = products.map(product => product.price);
+  let totalPrice = productsPrice.reduce((a, b) => a + b, 0);
+  return totalPrice;
+}
+
+// let total = getTotal(groceryItems)
+// console.log(total)
+const student = {
+  name: 'Mahbir',
+  age: 12,
+  class: 'two',
+  results: {
+    firstTerm: 4.8,
+    secondTerm: 5
+  }
+}
+
+const schoolName = student?.results?.finalTerm
+
+console.log(schoolName)
 }
