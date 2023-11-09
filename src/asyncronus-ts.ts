@@ -12,6 +12,8 @@
     return data;
   }
 getTodo();
+
+
   type SomeThing = { something: string }
   // simulate
   const createPromise = ():Promise<SomeThing> => {

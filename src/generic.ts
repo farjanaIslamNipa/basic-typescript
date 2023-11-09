@@ -92,6 +92,26 @@ const result3 = createArrayWithGeneric<boolean>(true)
 
 
 
+class Dog { 
+    constructor(public name: string, public species: string){}
+}
+
+const isDog = (animal: Dog) : animal is Dog => {
+  return animal instanceof Dog
+}
+
+const getAnimal = (animal: Dog) => {
+  if(isDog(animal)) {
+    animal.name
+  }else{
+    console.log('Animal not found')
+  }
+}
+
+const dog = new Dog( 'German Shepherd', 'dog');
+
+getAnimal(dog)
+
 //
 
 

@@ -299,17 +299,24 @@ const getTotal = (products : ProductArray<Product>) : number => {
 
 // let total = getTotal(groceryItems)
 // console.log(total)
-const student = {
-  name: 'Mahbir',
-  age: 12,
-  class: 'two',
-  results: {
-    firstTerm: 4.8,
-    secondTerm: 5
-  }
+class Dog { 
+  constructor(public name: string, public species: string){}
 }
 
-const schoolName = student?.results?.finalTerm
+const isDog = (animal: Dog) : animal is Dog => {
+return animal instanceof Dog
+}
 
-console.log(schoolName)
+const getAnimal = (animal: Dog) => {
+if(isDog(animal)) {
+  return animal.name
+}else{
+  return 'Animal not found'
+}
+}
+
+const dog = new Dog( 'German Shepherd', 'dog');
+
+ let dogName = getAnimal(dog)
+ console.log(dogName)
 }
